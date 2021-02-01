@@ -18,7 +18,9 @@ class MainController extends Controller
      */
     public function index(): View
     {
-        LogJob::dispatch()->delay(10);
+        LogJob::dispatch();
+        LogJob::dispatch()->delay(now()->addSeconds(10));
+
 
         return view('welcome');
     }
